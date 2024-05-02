@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.3.0"
 
+#font awesome implementation
+gem "font-awesome-rails"
+
 # iex-ruby-client-gem
 gem 'iex-ruby-client'
 
@@ -81,3 +84,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "byebug", "~> 11.1"

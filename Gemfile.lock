@@ -89,6 +89,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.40.0)
       addressable
       matrix
@@ -124,6 +125,8 @@ GEM
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -313,11 +316,13 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
+  byebug (~> 11.1)
   capybara
   debug
   devise
   devise-bootstrap-views
   devise-i18n
+  font-awesome-rails
   iex-ruby-client
   importmap-rails
   jbuilder
