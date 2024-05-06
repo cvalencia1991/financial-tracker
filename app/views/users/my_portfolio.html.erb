@@ -1,10 +1,11 @@
 <h1>my Portfolio</h1>
 <div class="search-area">
 <h3>Search Stocks</h3>
-<%= form_tag search_stock_path,remote: true, method: :get do%>
+<%= form_tag search_stock_path, remote: true, data: {turbo_stream: true}, method: :get do%>
   <div class="form-group row">
     <div class="col-sm-9 no-right-padding">
-      <%= text_field_tag :stock, params[:stock], placeholder:"Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
+      <%= text_field_tag :stock, params[:stock], placeholder:"Stock ticker symbol",
+        class: "form-control form-control-lg" %>
 
     </div>
     <div class="col-sm-3 no-left-padding">
@@ -15,4 +16,5 @@
   </div>
   <% end %>
 </div>
-<%= render 'users/result'%>
+<div id="results"></div>
+
