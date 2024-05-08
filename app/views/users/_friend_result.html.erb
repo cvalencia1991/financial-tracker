@@ -11,7 +11,13 @@
         <td><strong>Name: </strong><%= friend.full_name %></td>
         <td><strong>Email:  </strong><%= friend.email %></td>
         <td><strong>Actions: </strong><%= link_to "View Profile", "#", class:"btn btn-sm btn-success" %>
-        <%= link_to 'Follow friend?', '#' , class:"btn btn-sm btn-success",data:{"turbo-method": :post} %></td>
+        <% if current_user.not_friends_with?(friend.id)%>
+        <%= link_to 'Follow friend?', friendships_path(friend: friend) , class:"btn btn-sm btn-success",data:{"turbo-method": :post} %></td>
+      <%else%>
+        <span class="badge badge-secondary text-secondary">
+          You are friends
+        </span>
+      <% end%>
     </tr>
   <% end %>
   </tbody>
