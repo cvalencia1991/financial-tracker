@@ -8,6 +8,29 @@ class UsersController < ApplicationController
   end
 
   def search
-    render json: params[:friend]
+    if params[:friend].present?
+      @friend = params[:friend]
+      if @friend
+        respond_to do |format|
+          format.turbo_stream do
+             render turbo_stream: turbo_stream.update(
+            'results',
+             partial: 'users/friend_result'
+            )
+           end
+        end
+      else
+      find_friend
+      end
+    else
+      valid_friend
+    end
+  end
+  def find_friend
+    flash[:alert] = "couldn't find user"
+  end
+
+  def valid_friend
+    flash[:alert] = "Please enter a friend name or email to search"
   end
 end
